@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="Anil z" name="author">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Creating a professional, modern and sophisticated online resume website is easy with Martyn CV / Resume">
+<meta name="keywords" content="CV, resume, card, vcard, online cv, online resume, professional resume, portfolio, one page, bootstrap responsive, creative html template, creative design, parallax, personal">
+
+<!-- SITE TITLE -->
+<title th:text="${detail.title}">项目详情</title>
+<!-- Favicon Icon -->
+<link rel="shortcut icon" type="image/x-icon" th:href="@{${index.faviconIcon}}">
+<!-- Animation CSS -->
+<link rel="stylesheet" th:href="@{/assets/css/animate.css}">
+<!-- Latest Bootstrap min CSS -->
+<link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<!-- Icon Font CSS -->
+<link rel="stylesheet" th:href="@{/assets/css/ionicons.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/themify-icons.css}">
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" th:href="@{/assets/css/all.min.css}">
+<!-- Flaticon Font CSS -->
+<link rel="stylesheet" th:href="@{/assets/css/flaticon.css}">
+<!--- owl carousel CSS-->
+<link rel="stylesheet" th:href="@{/assets/owlcarousel/css/owl.carousel.min.css}">
+<link rel="stylesheet" th:href="@{/assets/owlcarousel/css/owl.theme.css}">
+<link rel="stylesheet" th:href="@{/assets/owlcarousel/css/owl.theme.default.min.css}">
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" th:href="@{/assets/css/magnific-popup.css}">
+<!-- Scrollbar Css -->
+<link rel="stylesheet" th:href="@{/assets/css/jquery.mCustomScrollbar.min.css}">
+<!-- Style CSS -->
+<link rel="stylesheet" th:href="@{/assets/css/style.css}">
+<link rel="stylesheet" th:href="@{/assets/css/responsive.css}">
+
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div class="preloader">
+    <div class="loader">
+		<div class="loader-inner ball-scale">
+          <div></div>
+          <div></div>
+          <div></div>
+		</div>
+	</div>
+</div>
+<!-- END LOADER --> 
+
+<!-- START HEADER -->
+<header class="header_wrap fixed-top dark_skin hover_menu_style3 sidebar_menu side_menu_mobile transparent-header">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg"> 
+    	<a class="navbar-brand page-scroll" th:href="@{/#home_section}">
+        	<img class="logo_light" th:src="@{${index.logoPath}}" alt="logo" />
+            <img class="logo_dark" th:src="@{${index.logoPath}}" alt="logo" />
+            <img class="logo_default" th:src="@{${index.logoPath}}" alt="logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
+      	<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        	<a class="navbar-brand page-scroll" th:href="@{#home_section}">
+                <img class="logo_light" th:src="@{${index.logoPath}}" alt="logo" />
+                <img class="logo_dark" th:src="@{${index.logoPath}}" alt="logo" />
+                <img class="logo_default" th:src="@{${index.logoPath}}" alt="logo" />
+            </a>
+            <ul class="navbar-nav">
+                <li>
+                    <a class="nav-link page-scroll" th:href="@{/#home_section}">首页</a>
+                </li>
+                <li>
+                    <a class="nav-link page-scroll" th:href="@{/#about}">关于我</a>
+                </li>
+                <li>
+                    <a class="nav-link page-scroll" th:href="@{/#services}">个人技能</a>
+                </li>
+                <li>
+                    <a class="nav-link page-scroll" th:href="@{/#blog}">作品集</a>
+                </li>
+                <li>
+                    <a class="nav-link page-scroll" th:href="@{/l#experience}">职业生涯</a>
+                </li>
+
+            </ul>
+            <div class="bottom_content">
+                <ul class="contact_info list_none">
+                    <li>
+                        <span class="ti-mobile"></span>
+                        <p th:text="${index.phone}">+(1) 188 8888 8888</p>
+                    </li>
+                    <li>
+                        <span class="ti-email"></span>
+                        <a th:href="'mailto:' + ${index.email}" th:text="${index.email}"> test.@qq.com</a>
+                    </li>
+                    <li>
+                        <span style="display: inline-block; width: 25px; height: 25px;">
+                            <img th:src="@{/assets/images/weixin2.png}" alt="weixin">
+                        </span>
+                        <p th:text="${index.weixin}">weixin_code</p>
+                    </li>
+                </ul>
+                <ul class="list_none social_icons">
+                    <li th:each="link : ${webs}">
+                        <a th:href="${link.val1}" class="sc_instagram">
+                            <img th:src="@{${link.val2}}" th:alt="${link.val3}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  </div>
+</header>
+<!-- START HEADER -->  
+
+<div class="page-content">
+
+<!-- START SECTION BREADCRUMB -->
+<section class="breadcrumb_section bg_gray">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-sm-6">
+            	<div class="page-title">
+            		<h1 th:text="${detail.name}">项目细节</h1>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-sm-end">
+                    <li class="breadcrumb-item">首页</li>
+                    <li class="breadcrumb-item active" aria-current="page" th:text="${detail.name}">项目细节</li>
+                  </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION BREADCRUMB -->
+
+<!-- START SECTION PORTFOLIO DETAIL -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="col-lg-8">
+                    <div class="carousel_slider owl-carousel owl-theme" data-margin="20" data-dots="false" data-loop="true" data-nav="true" data-autoplay="true" data-items="1">
+                        <div th:each="img : ${imgs}" class="item">
+                            <img th:src="${img.link}" th:alt="${img.name}"/>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <ul class="list_none portfolio_info_box">
+                    <li><span class="text-uppercase">参与角色</span><p th:text="${detail.category}"></p></li>
+                    <li><span class="text-uppercase">项目时间</span><p th:text="${detail.date}"></p></li>
+                    <li><span class="text-uppercase">技术选型</span><p th:text="${detail.technologySelection}"></p></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="pf_content">
+                    <div class="heading_s1">
+                        <h2>项目简介</h2>
+                    </div>
+                    <p th:text="${detail.projectDescription}"></p>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="pf_content">
+                    <div class="heading_s1">
+                        <h2>要点问题</h2>
+                    </div>
+                    <p th:text="${detail.keyPoint}"></p>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="pf_content">
+                    <div class="heading_s1">
+                        <h2>项目地址</h2>
+                    </div>
+                    <ul th:each="link : ${project_links}">
+                        <li><span class="text-uppercase" th:text="${link.name}">项目地址 </span>
+                            <a th:href="${link.link}" th:text="${link.link}"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION PORTFOLIO DETAIL -->
+
+<!-- START FOOTER SECTION --> 
+<footer class="bg_gray">
+	<div class="top_footer">
+        <div class="container">
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bottom_footer border-top">
+                    <div class="row">
+<!--                        <div class="col-12">-->
+<!--                            <p class="copyright m-0 text-center" th:text="${detail.copyRight}">© 2024 All Rights Reserved By <a th:href="@{${detail.rightUrl}}" th:text="${detail.rightName}">emirage</a></p>-->
+<!--                        </div>-->
+                        <div class="col-12">
+                            <p class="copyright m-0 text-center">
+                                <span th:text="${index.copyRight}"></span>
+                                <a th:href="@{${index.rightUrl}}" th:text="${index.rightName}"></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER SECTION --> 
+
+</div>
+
+<a th:href="@{#}" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
+
+<!-- Latest jQuery --> 
+<script th:src="@{/assets/js/jquery-1.12.4.min.js}"></script>
+<!-- jquery-ui --> 
+<script th:src="@{/assets/js/jquery-ui.js}"></script>
+<!-- popper min js --> 
+<script th:src="@{/assets/js/popper.min.js}"></script>
+<!-- Latest compiled and minified Bootstrap --> 
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+<!-- owl-carousel min js  --> 
+<script th:src="@{/assets/owlcarousel/js/owl.carousel.min.js}"></script>
+<!-- magnific-popup min js  --> 
+<script th:src="@{/assets/js/magnific-popup.min.js}"></script>
+<!-- waypoints min js  --> 
+<script th:src="@{/assets/js/waypoints.min.js}"></script>
+<!-- parallax js  --> 
+<script th:src="@{/assets/js/parallax.js}"></script>
+<!-- countdown js  --> 
+<script th:src="@{/assets/js/jquery.countdown.min.js}"></script>
+<!-- jquery.counterup.min js --> 
+<script th:src="@{/assets/js/jquery.counterup.min.js}"></script>
+<!-- imagesloaded js -->
+<script th:src="@{/assets/js/imagesloaded.pkgd.min.js}"></script>
+<!-- isotope min js --> 
+<script th:src="@{/assets/js/isotope.min.js}"></script>
+<!-- vanilla-tilt.babel.min js -->
+<script th:src='@{/assets/js/vanilla-tilt.babel.min.js}'></script>
+<!-- typed.min js --> 
+<script th:src="@{/assets/js/typed.min.js}"></script>
+<!-- typed text js --> 
+<script th:src="@{/assets/js/typed-text.js}"></script>
+<!-- mCustomScrollbar.concat.min js -->
+<script th:src="@{/assets/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+<!-- scripts js --> 
+<script th:src="@{/assets/js/scripts.js}"></script>
+
+</body>
+</html>
