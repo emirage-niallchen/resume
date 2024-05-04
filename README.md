@@ -1,3 +1,10 @@
+## 项目截图
+
+![img.png](image/img.png)
+![img.png](image/imgabout.png)
+![img.png](image/imgskills.png)
+![img.png](image/img3.png)
+![img_1.png](image/img_1.png)
 ## 使用说明
 
 ### 修改数据库连接信息，以及希望的端口号
