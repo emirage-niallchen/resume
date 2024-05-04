@@ -849,6 +849,8 @@ button:focus {
 .dark_skin .logo_dark,
 .light_skin .logo_light {
 	display: block;
+	max-width: 150px;  /* 最大宽度为200像素 */
+	max-height: 150px;
 }
 .light_skin .navbar-nav a,
 .light_skin .navbar-toggler {

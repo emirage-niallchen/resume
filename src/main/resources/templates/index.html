@@ -10,7 +10,7 @@
 <meta name="keywords" content="CV, resume, card, vcard, online cv, online resume, professional resume, portfolio, one page, bootstrap responsive, creative html template, creative design, parallax, personal">
 
 <!-- SITE TITLE -->
-<title th:text="${index.indexTitle}">陈博云在线简历.go</title>
+<title th:utext="${index.indexTitle}">陈博云在线简历.go</title>
 <!-- Favicon Icon -->
 <link rel="shortcut icon" type="image/x-icon" th:href="@{${index.faviconIcon}}">
 <!-- Animation CSS -->
@@ -39,6 +39,40 @@
 <link rel="stylesheet" th:href="@{assets/css/style.css}">
 <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
 
+    <style>
+        /* 用来增强视觉效果，确保卡片列有适当的间隔 */
+        .card-columns {
+            column-count: 3; /* 你可以调整这个数字以适应不同屏幕尺寸 */
+        }
+
+        .card-img-top {
+            max-width: 30%; /* 使图片宽度不超过卡片宽度 */
+            height: auto; /* 保持图片的原始宽高比 */
+        }
+
+        .card {
+            margin-bottom: 20px; /* 增加卡片之间的间距 */
+        }
+
+        /* 确保卡片内文本尽可能展开 */
+        .card-body {
+            padding: 1rem; /* 适当的内边距，防止文本紧贴边框 */
+        }
+
+        /* 自定义样式：将卡片内文字靠近边框，同时使字体小一点 */
+        .icon_box_content {
+            padding: 0.5rem; /* 调整内边距，使文字更靠近边框 */
+        }
+        .icon_box_content h5 {
+            font-size: 1rem; /* 调整标题的字体大小 */
+            margin-bottom: 0.5rem; /* 调整标题的下外边距 */
+        }
+        .icon_box_content p {
+            font-size: 0.8rem; /* 调整段落的字体大小 */
+            margin-bottom: 0; /* 去除段落的下外边距 */
+        }
+    </style>
+
 </head>
 
 <body data-spy="scroll" data-target=".navbar-nav" data-offset="110">
@@ -61,14 +95,14 @@
     <nav class="navbar navbar-expand-lg"> 
     	<a class="navbar-brand page-scroll" th:href="@{#home_section}">
         	<img class="logo_light" th:src="@{assets/images/logo_white.png}" alt="logo" />
-            <img class="logo_dark" th:src="@{${index.logoPath}}" alt="logo" />
+            <img class="logo_dark" th:src="${index.logoPath}" alt="logo" />
             <img class="logo_default" th:src="@{assets/images/logo_dark.png}" alt="logo" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
       	<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         	<a class="navbar-brand page-scroll" th:href="@{#home_section}">
                 <img class="logo_light" th:src="@{assets/images/logo_white.png}" alt="logo" />
-                <img class="logo_dark" th:src="@{${index.logoPath}}" alt="logo" />
+                <img class="logo_dark" th:src="${index.logoPath}" alt="logo" />
                 <img class="logo_default" th:src="@{assets/images/logo_dark.png}" alt="logo" />
             </a>
             <ul class="navbar-nav">
@@ -92,18 +126,18 @@
                 <ul class="contact_info list_none">
                     <li>
                         <span class="ti-mobile"></span>
-                        <p th:text="${index.phone}">+(1) 188 8888 8888</p>
+                        <p th:utext="${index.phone}">+(1) 188 8888 8888</p>
                     </li>
                     <li>
                         <span class="ti-email"></span>
 <!--                        <p>发送邮件给</p>-->
-                        <a th:href="'mailto:' + ${index.email}" th:text="${index.email}"> test.@qq.com</a>
+                        <a th:href="'mailto:' + ${index.email}" th:utext="${index.email}"> test.@qq.com</a>
                     </li>
                     <li>
                         <span style="display: inline-block; width: 25px; height: 25px;">
                             <img th:src="@{assets/images/weixin2.png}" alt="weixin">
                         </span>
-                        <p th:text="${index.weixin}">weixin_code</p>
+                        <p th:utext="${index.weixin}">weixin_code</p>
                     </li>
                 </ul>
 <!--                <ul class="list_none social_icons">-->
@@ -114,7 +148,7 @@
                 <ul class="list_none social_icons">
                     <li th:each="link : ${webs}">
                         <a th:href="${link.val1}" class="sc_instagram">
-                            <img th:src="@{${link.val2}}" th:alt="${link.val3}">
+                            <img th:src="${link.val2}" th:alt="${link.val3}">
                         </a>
                     </li>
                 </ul>
@@ -135,12 +169,12 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-xl-6 col-md-7">
                     <div class="banner_content banner_center_content">
-                        <h2 class="animation" data-animation="fadeInUp" data-animation-delay="0.02s" th:text="${index.animation}">Hi ！我是陈博云</h2>
+                        <h2 class="animation" data-animation="fadeInUp" data-animation-delay="0.02s" th:utext="${index.animation}">Hi ！我是陈博云</h2>
                         <div id="typed-strings" class="d-none">
-                            <b th:text="${index.typed1}">、硬件发烧友</b> <b th:text="${index.typed2}">、代码仰慕者</b>
+                            <b th:utext="${index.typed1}">、硬件发烧友</b> <b th:utext="${index.typed2}">、代码仰慕者</b>
                         </div>
-                        <h4 class="animation" data-animation="fadeInUp" data-animation-delay="0.03s" th:text="${index.typed3}">一名激情博发的Java工程师 <span id="typed-text" class="text_default"></span></h4>
-                        <p class="animation" data-animation="fadeInUp" data-animation-delay="0.04s" th:text="${index.typed4}">着迷创造，乐于挑战，代码的抽象世界中，我永远跃跃欲试！</p>
+                        <h4 class="animation" data-animation="fadeInUp" data-animation-delay="0.03s" th:utext="${index.typed3}">一名激情博发的Java工程师 <span id="typed-text" class="text_default"></span></h4>
+                        <p class="animation" data-animation="fadeInUp" data-animation-delay="0.04s" th:utext="${index.typed4}">着迷创造，乐于挑战，代码的抽象世界中，我永远跃跃欲试！</p>
                         <a th:href="@{/download (code='cv')}" class="btn btn-default rounded-0 btn-aylen animation" data-animation="fadeInUp" data-animation-delay="0.5s">下载简历</a>
 
                         <!--                        <a th:href="@{/download-resume}" class="btn btn-default rounded-0 btn-aylen animation" data-animation="fadeInUp" data-animation-delay="0.5s">下载简历</a>-->
@@ -148,7 +182,7 @@
                 </div>
                 <div class="col-xl-5 col-md-5">
                 	<div class="banner_img animation" data-animation="fadeInUp" data-animation-delay="0.02s">
-                    	<img th:src="@{${index.myImage}}" alt="my_image"/>
+                    	<img th:src="${index.myImage}" alt="my_image"/>
                     </div>
                 </div>
             </div>
@@ -164,7 +198,7 @@
         <ul class="list_none social_icons text-center">
             <li th:each="link : ${webs}">
                 <a th:href="${link.val1}" class="sc_instagram">
-                    <img th:src="@{${link.val2}}" th:alt="${link.val3}">
+                    <img th:src="${link.val2}" th:alt="${link.val3}">
                 </a>
             </li>
         </ul>
@@ -179,7 +213,7 @@
         <div class="row">
                 <div class="col-md-4">
                 	<div class="about_img animation" data-animation="fadeInUp" data-animation-delay="0.02s">
-                    	<img th:src="@{${index.aboutImg}}" alt="about_img"/>
+                    	<img th:src="${index.aboutImg}" alt="about_img"/>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -187,7 +221,7 @@
                         <div class="heading_s1 mb-3"> 
                           <h2>关于我</h2>
                         </div>
-                        <p th:text="${index.aboutMe}">自我介绍</p>
+                        <p th:utext="${index.aboutMe}">自我介绍</p>
                         <hr>
                         <div class="heading_s1 mb-4"> 
                             <h5>基本信息</h5>
@@ -195,27 +229,27 @@
                         <ul class="profile_info list_none">
                             <li>
                                 <span class="title">出生日期:</span>
-                                <p th:text="${index.birthday}">2099年 9月 9日</p>
+                                <p th:utext="${index.birthday}">2099年 9月 9日</p>
                             </li>
                             <li>
                                 <span class="title">联系电话:</span>
-                                <p th:text="${index.phone}">+ (1) 188-8888-8888</p>
+                                <p th:utext="${index.phone}">+ (1) 188-8888-8888</p>
                             </li>
                             <li>
                                 <span class="title">邮箱地址:</span>
-                                <a th:href="'mailto:' + ${index.email}" th:text="${index.email}">发送邮件给 </a>
+                                <a th:href="'mailto:' + ${index.email}" th:utext="${index.email}">发送邮件给 </a>
                             </li>
                             <li>
                                 <span class="title">微信:</span>
-                                <p th:text="${index.weixin}"> test_name </p>
+                                <p th:utext="${index.weixin}"> test_name </p>
                             </li>
                             <li>
                                 <span class="title">博客:</span>
-                                <p th:text="${index.blog}"> https://blog.test.com/ </p>
+                                <p th:utext="${index.blog}"> https://blog.test.com/ </p>
                             </li>
                             <li>
                                 <span class="title">期望职业:</span>
-                                <p th:text="${index.jobExpectation}">Java开发工程师</p>
+                                <p th:utext="${index.jobExpectation}">Java开发工程师</p>
                             </li>
                         </ul>
                     </div>
@@ -236,33 +270,36 @@
                  <p class="animation" data-animation="fadeInUp" data-animation-delay="0.03s"></p>
             </div>
         </div>
-<!--        <div class="row animation" data-animation="fadeInUp" data-animation-delay="0.04s">-->
+        <div class="container">
 
-<!--        	<div class="col-lg-4 col-sm-6 text-center">-->
-<!--            	<div class="icon_box icon_box_style_1">-->
-<!--                    <div class="box_icon mb-3">	-->
-<!--                        <i class="ti-image"></i>-->
-<!--                    </div>-->
-<!--                    <div class="icon_box_content">-->
-<!--                        <h5>Graphic Design</h5>-->
-<!--                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>-->
+            <div class="card-columns animation" data-animation="fadeInUp" data-animation-delay="0.04s">
+                <div th:each="skill : ${skills}" class="card text-center">
+                    <div class="icon_box icon_box_style_1">
+                        <div class="box_icon mb-3">
+                            <img th:src="${skill.val1}" alt="Skill Icon" class="card-img-top" />
+                        </div>
+                        <div class="icon_box_content card-body">
+                            <h5 th:utext="${skill.val2}">Skill Name</h5>
+                            <p th:utext="${skill.val3}">Skill Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--            <div class="card-columns animation" data-animation="fadeInUp" data-animation-delay="0.04s">-->
+<!--                <div th:each="skill : ${skills}" class="card text-center">-->
+<!--                    <div class="icon_box icon_box_style_1">-->
+<!--                        <div class="box_icon mb-3">-->
+<!--                            <img th:src="${skill.val1}" alt="Skill Icon" class="card-img-top" />-->
+<!--                        </div>-->
+<!--                        <div class="icon_box_content card-body">-->
+<!--                            <h5 th:utext="${skill.val2}">Skill Name</h5>-->
+<!--                            <p th:utext="${skill.val3}">Skill Description</p>-->
+<!--                        </div>-->
 <!--                    </div>-->
 <!--                </div>-->
 <!--            </div>-->
 
-<!--        </div>-->
-        <div class="row animation" data-animation="fadeInUp" data-animation-delay="0.04s">
-            <div th:each="skill : ${skills}" class="col-lg-4 col-sm-6 text-center">
-                <div class="icon_box icon_box_style_1">
-                    <div class="box_icon mb-3">
-                        <img th:src="@{${skill.val1}}" alt="Skill Icon" />
-                    </div>
-                    <div class="icon_box_content">
-                        <h5 th:text="${skill.val2}">Skill Name</h5>
-                        <p th:text="${skill.val3}">Skill Description</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>
@@ -278,7 +315,7 @@
             	<div class="heading_s1 animation" data-animation="fadeInUp" data-animation-delay="0.02s">
                 	<h2>作品清单</h2>
                 </div>
-                <p class="animation" data-animation="fadeInUp" data-animation-delay="0.03s" th:text="${index.portfolio}">除日常工作, 出于兴趣, 会去封装几个简单的小工具</p>
+                <p class="animation" data-animation="fadeInUp" data-animation-delay="0.03s" th:utext="${index.portfolio}">除日常工作, 出于兴趣, 会去封装几个简单的小工具</p>
             </div>
         </div>
         <div class="row">
@@ -318,13 +355,13 @@
                 <div class="blog_post">
                     <div class="blog_img">
                         <a th:href="@{/blog-detail/{id}(id=${blog.id})}">
-                        <img th:src="@{${blog.imageUrl}}" th:alt="${blog.title}">
+                        <img th:src="${blog.imageUrl}" th:alt="${blog.title}">
                         </a>
                     </div>
                     <div class="blog_content">
                         <div class="blog_text">
                             <div class="post_category">
-                                <p th:text="${blog.category}">Java开发</p>
+                                <p th:utext="${blog.category}">Java开发</p>
                             </div>
                             <h5 class="blog_title">
                                 <a th:href="@{/blog-detail/{id}(id=${blog.id})}">[[${blog.title}]]</a>
@@ -355,7 +392,7 @@
             	<div class="heading_s1 animation" data-animation="fadeInUp" data-animation-delay="0.02s">
                 	<h2>职业生涯</h2>
                 </div>
-                <p class="animation" data-animation="fadeInUp" data-animation-delay="0.03s" th:text="${index.experienceTitle}">工作开发经历测试</p>
+                <p class="animation" data-animation="fadeInUp" data-animation-delay="0.03s" th:utext="${index.experienceTitle}">工作开发经历测试</p>
                 <div class="small_divider clearfix"></div>
             </div>
         </div>
@@ -385,10 +422,10 @@
 <!--                    </div>-->
                     <div th:each="exp : ${experiences}" class="timeline_box">
                         <div class="timeline_content">
-                            <p><span class="text_default" th:text="${exp.period}">2023 - 至今</span> <span th:text="${exp.organization}">北京文泽智远信息技术有限公司</span></p>
-                            <h4 th:text="${exp.role}">Java 开发工程师</h4>
+                            <p><span class="text_default" th:utext="${exp.period}">2023 - 至今</span> <span th:utext="${exp.organization}">北京文泽智远信息技术有限公司</span></p>
+                            <h4 th:utext="${exp.role}">Java 开发工程师</h4>
                             <hr>
-                            <p th:text="${exp.remark}">我第一家正式工作的公司, 团队95%为开发人员，技术氛围浓郁，主要服务于中国气象局，为其提供一定技术、算法支持。</p>
+                            <p th:utext="${exp.remark}">我第一家正式工作的公司, 团队95%为开发人员，技术氛围浓郁，主要服务于中国气象局，为其提供一定技术、算法支持。</p>
                         </div>
                     </div>
                 </div>
@@ -428,7 +465,7 @@
                     <ul class="list_none social_icons pt-4">
                         <li th:each="link : ${webs}">
                             <a th:href="${link.val1}" class="sc_instagram">
-                                <img th:src="@{${link.val2}}" th:alt="${link.val3}">
+                                <img th:src="${link.val2}" th:alt="${link.val3}">
                             </a>
                         </li>
                     </ul>
@@ -442,12 +479,12 @@
                 <div class="bottom_footer border-top">
                     <div class="row">
 <!--                        <div class="col-12">-->
-<!--                            <p class="copyright m-0 text-center" th:text="${index.copyRight}">编辑技术支持<a th:href="@{${index.rightUrl}}" th:text="${index.rightName}">emirage</a></p>-->
+<!--                            <p class="copyright m-0 text-center" th:utext="${index.copyRight}">编辑技术支持<a th:href="@{${index.rightUrl}}" th:utext="${index.rightName}">emirage</a></p>-->
 <!--                        </div>-->
                         <div class="col-12">
                             <p class="copyright m-0 text-center">
-                                <span th:text="${index.copyRight}"></span>
-                                <a th:href="@{${index.rightUrl}}" th:text="${index.rightName}"></a>
+                                <span th:utext="${index.copyRight}"></span>
+                                <a th:href="@{${index.rightUrl}}" th:utext="${index.rightName}"></a>
                             </p>
                         </div>
                     </div>
@@ -506,5 +543,7 @@
         }
     }
     </script>
+
+
 </body>
 </html>

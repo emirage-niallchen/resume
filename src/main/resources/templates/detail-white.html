@@ -10,7 +10,7 @@
 <meta name="keywords" content="CV, resume, card, vcard, online cv, online resume, professional resume, portfolio, one page, bootstrap responsive, creative html template, creative design, parallax, personal">
 
 <!-- SITE TITLE -->
-<title th:text="${detail.title}">项目详情</title>
+<title th:utext="${detail.title}">项目详情</title>
 <!-- Favicon Icon -->
 <link rel="shortcut icon" type="image/x-icon" th:href="@{${index.faviconIcon}}">
 <!-- Animation CSS -->
@@ -60,16 +60,16 @@
   <div class="container">
     <nav class="navbar navbar-expand-lg"> 
     	<a class="navbar-brand page-scroll" th:href="@{/#home_section}">
-        	<img class="logo_light" th:src="@{${index.logoPath}}" alt="logo" />
-            <img class="logo_dark" th:src="@{${index.logoPath}}" alt="logo" />
-            <img class="logo_default" th:src="@{${index.logoPath}}" alt="logo" />
+        	<img class="logo_light" th:src="${index.logoPath}" alt="logo" />
+            <img class="logo_dark" th:src="${index.logoPath}" alt="logo" />
+            <img class="logo_default" th:src="${index.logoPath}" alt="logo" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
       	<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         	<a class="navbar-brand page-scroll" th:href="@{#home_section}">
-                <img class="logo_light" th:src="@{${index.logoPath}}" alt="logo" />
-                <img class="logo_dark" th:src="@{${index.logoPath}}" alt="logo" />
-                <img class="logo_default" th:src="@{${index.logoPath}}" alt="logo" />
+                <img class="logo_light" th:src="${index.logoPath}" alt="logo" />
+                <img class="logo_dark" th:src="${index.logoPath}" alt="logo" />
+                <img class="logo_default" th:src="${index.logoPath}" alt="logo" />
             </a>
             <ul class="navbar-nav">
                 <li>
@@ -93,23 +93,23 @@
                 <ul class="contact_info list_none">
                     <li>
                         <span class="ti-mobile"></span>
-                        <p th:text="${index.phone}">+(1) 188 8888 8888</p>
+                        <p th:utext="${index.phone}">+(1) 188 8888 8888</p>
                     </li>
                     <li>
                         <span class="ti-email"></span>
-                        <a th:href="'mailto:' + ${index.email}" th:text="${index.email}"> test.@qq.com</a>
+                        <a th:href="'mailto:' + ${index.email}" th:utext="${index.email}"> test.@qq.com</a>
                     </li>
                     <li>
                         <span style="display: inline-block; width: 25px; height: 25px;">
                             <img th:src="@{/assets/images/weixin2.png}" alt="weixin">
                         </span>
-                        <p th:text="${index.weixin}">weixin_code</p>
+                        <p th:utext="${index.weixin}">weixin_code</p>
                     </li>
                 </ul>
                 <ul class="list_none social_icons">
                     <li th:each="link : ${webs}">
                         <a th:href="${link.val1}" class="sc_instagram">
-                            <img th:src="@{${link.val2}}" th:alt="${link.val3}">
+                            <img th:src="${link.val2}" th:alt="${link.val3}">
                         </a>
                     </li>
                 </ul>
@@ -128,14 +128,14 @@
     	<div class="row">
         	<div class="col-sm-6">
             	<div class="page-title">
-            		<h1 th:text="${detail.name}">项目细节</h1>
+            		<h1 th:utext="${detail.name}">项目细节</h1>
                 </div>
             </div>
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb justify-content-sm-end">
                     <li class="breadcrumb-item">首页</li>
-                    <li class="breadcrumb-item active" aria-current="page" th:text="${detail.name}">项目细节</li>
+                    <li class="breadcrumb-item active" aria-current="page" th:utext="${detail.name}">项目细节</li>
                   </ol>
                 </nav>
             </div>
@@ -160,9 +160,9 @@
             </div>
             <div class="col-lg-4">
                 <ul class="list_none portfolio_info_box">
-                    <li><span class="text-uppercase">参与角色</span><p th:text="${detail.category}"></p></li>
-                    <li><span class="text-uppercase">项目时间</span><p th:text="${detail.date}"></p></li>
-                    <li><span class="text-uppercase">技术选型</span><p th:text="${detail.technologySelection}"></p></li>
+                    <li><span class="text-uppercase">参与角色</span><p th:utext="${detail.category}"></p></li>
+                    <li><span class="text-uppercase">项目时间</span><p th:utext="${detail.date}"></p></li>
+                    <li><span class="text-uppercase">技术选型</span><p th:utext="${detail.technologySelection}"></p></li>
                 </ul>
             </div>
         </div>
@@ -172,7 +172,7 @@
                     <div class="heading_s1">
                         <h2>项目简介</h2>
                     </div>
-                    <p th:text="${detail.projectDescription}"></p>
+                    <p th:utext="${detail.projectDescription}"></p>
                 </div>
             </div>
 
@@ -181,7 +181,7 @@
                     <div class="heading_s1">
                         <h2>要点问题</h2>
                     </div>
-                    <p th:text="${detail.keyPoint}"></p>
+                    <p th:utext="${detail.keyPoint}"></p>
                 </div>
             </div>
 
@@ -191,8 +191,8 @@
                         <h2>项目地址</h2>
                     </div>
                     <ul th:each="link : ${project_links}">
-                        <li><span class="text-uppercase" th:text="${link.name}">项目地址 </span>
-                            <a th:href="${link.link}" th:text="${link.link}"></a>
+                        <li><span class="text-uppercase" th:utext="${link.name}">项目地址 </span>
+                            <a th:href="${link.link}" th:utext="${link.link}"></a>
                         </li>
                     </ul>
                 </div>
@@ -215,12 +215,12 @@
                 <div class="bottom_footer border-top">
                     <div class="row">
 <!--                        <div class="col-12">-->
-<!--                            <p class="copyright m-0 text-center" th:text="${detail.copyRight}">© 2024 All Rights Reserved By <a th:href="@{${detail.rightUrl}}" th:text="${detail.rightName}">emirage</a></p>-->
+<!--                            <p class="copyright m-0 text-center" th:utext="${detail.copyRight}">© 2024 All Rights Reserved By <a th:href="@{${detail.rightUrl}}" th:utext="${detail.rightName}">emirage</a></p>-->
 <!--                        </div>-->
                         <div class="col-12">
                             <p class="copyright m-0 text-center">
-                                <span th:text="${index.copyRight}"></span>
-                                <a th:href="@{${index.rightUrl}}" th:text="${index.rightName}"></a>
+                                <span th:utext="${index.copyRight}"></span>
+                                <a th:href="@{${index.rightUrl}}" th:utext="${index.rightName}"></a>
                             </p>
                         </div>
                     </div>
